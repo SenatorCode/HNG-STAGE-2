@@ -1,38 +1,41 @@
-import ThemeToggle from './ThemeToggle'
-
-function LogoMark() {
-  return (
-    <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#7C5DFA] shadow-[0_10px_30px_rgba(124,93,250,0.35)] md:h-20 md:w-20 md:rounded-r-3xl md:rounded-tl-none md:rounded-bl-none">
-      <span className="text-lg font-bold text-white md:text-2xl">M</span>
-    </div>
-  )
-}
+import logoMark from "../../assets/invoiceLogo.svg";
+import avatarImage from "../../assets/avatar.svg";
+import ThemeToggle from "./ThemeToggle";
 
 function Avatar() {
   return (
     <img
-      src="https://i.pravatar.cc/100?img=12"
-      alt="User avatar"
-      className="h-10 w-10 rounded-full border border-white/10 object-cover md:h-10 md:w-10"
+      src={avatarImage}
+      alt="Profile picture"
+      className="h-10 w-10 rounded-full border border-white/10 object-cover shadow-[0_6px_16px_rgba(12,14,22,0.35)]"
     />
-  )
+  );
 }
 
 export default function Sidebar() {
   return (
     <>
-      <aside className="fixed inset-x-0 top-0 z-40 flex h-18 items-center justify-between bg-[#373B53] px-6 md:inset-y-0 md:left-0 md:w-20 md:flex-col md:justify-between md:rounded-r-3xl md:px-0 md:py-6">
-        <div className="flex items-center">
-          <LogoMark />
-        </div>
+      <aside className="fixed inset-x-0 top-0 z-40 bg-[#373B53] md:inset-y-0 md:left-0 md:w-20 md:rounded-r-3xl">
+        <div className="flex h-18 items-center px-0 md:h-full md:flex-col md:items-stretch md:justify-start md:py-6">
+          <div className="flex h-18 w-18 items-center justify-center md:h-20 md:w-20 md:justify-start md:self-start md:overflow-hidden md:rounded-br-3xl">
+            <img
+              src={logoMark}
+              alt="Invoice app"
+              className="h-full w-full object-cover"
+            />
+          </div>
 
-        <div className="flex items-center gap-4 md:hidden">
-          <ThemeToggle />
-          <Avatar />
-        </div>
+          <div
+            className="ml-auto flex items-center gap-3 pr-6 md:ml-0 md:hidden"
+            aria-label="Theme and profile controls"
+          >
+            <ThemeToggle />
+            <Avatar />
+          </div>
 
-        <div className="hidden w-full flex-col items-center gap-6 md:flex">
-          <div className="flex w-full flex-col items-center gap-6 px-0 pb-0">
+          <div className="hidden flex-1 md:block" />
+
+          <div className="mt-auto hidden w-full flex-col items-center gap-6 px-0 md:flex md:pb-0">
             <div className="h-px w-full bg-white/10" />
             <ThemeToggle />
             <Avatar />
@@ -40,5 +43,5 @@ export default function Sidebar() {
         </div>
       </aside>
     </>
-  )
+  );
 }

@@ -1,0 +1,20 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="bg" x1="20" y1="10" x2="85" y2="92" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#DDE3F3"/>
+    <stop offset="1" stop-color="#8C97B3"/>
+  </linearGradient>
+  <radialGradient id="faceGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(38 34) rotate(45) scale(42 42)">
+    <stop stop-color="#FFFFFF"/>
+    <stop offset="1" stop-color="#E8EDF7"/>
+  </radialGradient>
+</defs>
+<circle cx="50" cy="50" r="50" fill="url(#bg)"/>
+<circle cx="50" cy="50" r="39" fill="#C6CFDF" opacity="0.55"/>
+<circle cx="50" cy="42" r="19" fill="url(#faceGlow)"/>
+<path d="M28 83C30.7 68.8 40.4 61 50 61C59.6 61 69.3 68.8 72 83" stroke="#F8FAFF" stroke-width="8" stroke-linecap="round"/>
+<circle cx="42.5" cy="40.5" r="2.8" fill="#3E4660"/>
+<circle cx="57.5" cy="40.5" r="2.8" fill="#3E4660"/>
+<path d="M41 49.5C44.1 52.6 55.9 52.6 59 49.5" stroke="#3E4660" stroke-width="3.5" stroke-linecap="round"/>
+<path d="M27 36C30 23.5 38.8 16 50 16C61.2 16 70 23.5 73 36" stroke="#F8FAFF" stroke-width="9" stroke-linecap="round"/>
+</svg>
