@@ -1,5 +1,5 @@
 import logoMark from "../../assets/invoiceLogo.svg";
-import avatarImage from "../../assets/avatar.svg";
+import avatarImage from "../../assets/profileAvatar.svg";
 import ThemeToggle from "./ThemeToggle";
 
 function Avatar() {
