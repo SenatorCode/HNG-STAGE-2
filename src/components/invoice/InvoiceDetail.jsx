@@ -16,11 +16,17 @@ export default function InvoiceDetail({ invoice }) {
           </h2>
           <p className="mt-1 text-sm text-[#888EB0]">{invoice.description}</p>
         </div>
-        <div className="text-right text-sm text-[#888EB0]">
-          <div className="whitespace-nowrap">{invoice.senderAddress.street}</div>
+        <div className="text-left text-sm text-[#888EB0] md:text-right">
+          <div className="whitespace-nowrap">
+            {invoice.senderAddress.street}
+          </div>
           <div className="whitespace-nowrap">{invoice.senderAddress.city}</div>
-          <div className="whitespace-nowrap">{invoice.senderAddress.postCode}</div>
-          <div className="whitespace-nowrap">{invoice.senderAddress.country}</div>
+          <div className="whitespace-nowrap">
+            {invoice.senderAddress.postCode}
+          </div>
+          <div className="whitespace-nowrap">
+            {invoice.senderAddress.country}
+          </div>
         </div>
       </div>
 
@@ -29,13 +35,17 @@ export default function InvoiceDetail({ invoice }) {
         {/* Invoice & Payment Dates */}
         <div>
           <div className="mb-6">
-            <p className="text-xs font-bold uppercase text-[#888EB0]">Invoice Date</p>
+            <p className="text-xs font-bold uppercase text-[#888EB0]">
+              Invoice Date
+            </p>
             <p className="mt-2 text-lg font-bold text-[#0C0E16] dark:text-white">
               {formatDate(invoice.createdAt)}
             </p>
           </div>
           <div>
-            <p className="text-xs font-bold uppercase text-[#888EB0]">Payment Due</p>
+            <p className="text-xs font-bold uppercase text-[#888EB0]">
+              Payment Due
+            </p>
             <p className="mt-2 text-lg font-bold text-[#0C0E16] dark:text-white">
               {formatDate(invoice.paymentDue)}
             </p>
@@ -86,11 +96,16 @@ export default function InvoiceDetail({ invoice }) {
           </thead>
           <tbody>
             {invoice.items.map((item, index) => (
-              <tr key={index} className="border-b border-white/10 last:border-b-0">
+              <tr
+                key={index}
+                className="border-b border-white/10 last:border-b-0"
+              >
                 <td className="py-4 font-bold text-[#0C0E16] dark:text-white">
                   {item.name}
                 </td>
-                <td className="py-4 text-center text-[#888EB0]">{item.quantity}</td>
+                <td className="py-4 text-center text-[#888EB0]">
+                  {item.quantity}
+                </td>
                 <td className="py-4 text-right text-[#888EB0]">
                   {formatCurrency(item.price)}
                 </td>
@@ -104,12 +119,12 @@ export default function InvoiceDetail({ invoice }) {
       </div>
 
       {/* Amount Due Footer */}
-      <div className={joinClasses(
-        "flex items-center justify-between rounded-b-lg bg-[#373B53] px-6 py-6 dark:bg-[#0C0E16]"
-      )}>
-        <p className="text-sm font-bold uppercase text-white">
-          Amount Due
-        </p>
+      <div
+        className={joinClasses(
+          "flex items-center justify-between rounded-b-lg bg-[#373B53] px-6 py-6 dark:bg-[#0C0E16]",
+        )}
+      >
+        <p className="text-sm font-bold uppercase text-white">Amount Due</p>
         <p className="text-3xl font-bold text-[#7C5DFA]">
           {formatCurrency(invoice.total)}
         </p>

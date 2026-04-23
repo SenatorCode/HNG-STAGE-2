@@ -2,6 +2,7 @@ import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { ChevronDown, Plus } from "lucide-react";
 import { useState } from "react";
 import InvoiceCard from "../components/invoice/InvoiceCard";
+import InvoiceForm from "../components/invoice/InvoiceForm";
 import Button from "../components/ui/Button";
 import EmptyState from "../components/ui/EmptyState";
 import { useInvoiceStore, selectFilteredInvoices } from "../store/invoiceStore";
@@ -11,6 +12,7 @@ export default function Home() {
   const invoices = useInvoiceStore((state) => state.invoices);
   const filter = useInvoiceStore((state) => state.filter);
   const setFilter = useInvoiceStore((state) => state.setFilter);
+  const addInvoice = useInvoiceStore((state) => state.addInvoice);
   const filteredInvoices = selectFilteredInvoices({
     invoices,
     filter,
@@ -137,12 +139,13 @@ export default function Home() {
         <EmptyState />
       )}
 
-      {/* TODO: Form drawer will be rendered here when showForm is true */}
-      {showForm && (
-        <div className="text-center text-sm text-[#888EB0]">
-          [Form drawer will be implemented in Stage 6]
-        </div>
-      )}
+      <InvoiceForm
+        isOpen={showForm}
+        mode="create"
+        onClose={() => setShowForm(false)}
+        onSaveDraft={(formData) => addInvoice(formData, "draft")}
+        onSavePending={(formData) => addInvoice(formData, "pending")}
+      />
     </div>
   );
 }

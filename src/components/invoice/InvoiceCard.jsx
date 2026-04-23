@@ -18,6 +18,7 @@ export default function InvoiceCard({ invoice }) {
       tabIndex={0}
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
           handleClick();
         }
       }}

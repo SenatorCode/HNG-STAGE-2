@@ -2,6 +2,7 @@ import { ChevronLeft, Edit, Trash2 } from "lucide-react";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import InvoiceDetail from "../components/invoice/InvoiceDetail";
+import InvoiceForm from "../components/invoice/InvoiceForm";
 import Button from "../components/ui/Button";
 import DeleteModal from "../components/ui/DeleteModal";
 import StatusBadge from "../components/ui/StatusBadge";
@@ -16,6 +17,7 @@ export default function InvoiceDetailPage() {
   const invoices = useInvoiceStore((state) => state.invoices);
   const deleteInvoice = useInvoiceStore((state) => state.deleteInvoice);
   const markAsPaid = useInvoiceStore((state) => state.markAsPaid);
+  const updateInvoice = useInvoiceStore((state) => state.updateInvoice);
 
   const invoice = invoices.find((inv) => inv.id === id);
 
@@ -108,12 +110,13 @@ export default function InvoiceDetailPage() {
         onConfirm={handleDelete}
       />
 
-      {/* TODO: Form drawer will be rendered here when showForm is true */}
-      {showForm && (
-        <div className="text-center text-sm text-[#888EB0]">
-          [Form drawer will be implemented in Stage 6]
-        </div>
-      )}
+      <InvoiceForm
+        isOpen={showForm}
+        mode="edit"
+        invoice={invoice}
+        onClose={() => setShowForm(false)}
+        onSaveChanges={(formData) => updateInvoice(id, formData)}
+      />
     </div>
   );
 }
