@@ -4,13 +4,13 @@ A responsive invoice management application built with React that supports full 
 
 ## Live Demo
 
-- Live URL: `ADD_YOUR_VERCEL_OR_NETLIFY_URL_HERE`
-- GitHub Repository: `ADD_YOUR_GITHUB_REPO_URL_HERE`
+- Live URL: `https://hng-stage-2-nu-amber.vercel.app/`
+- GitHub Repository: `https://github.com/SenatorCode/HNG-STAGE-2`
 
 ## Setup Instructions
 
 1. Clone the repository
-   - `git clone <YOUR_REPO_URL>`
+   - `git clone https://github.com/SenatorCode/HNG-STAGE-2`
 2. Enter project directory
    - `cd HNG-STAGE-2`
 3. Install dependencies
