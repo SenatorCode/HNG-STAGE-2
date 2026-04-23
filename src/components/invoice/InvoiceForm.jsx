@@ -56,7 +56,7 @@ function getDefaultValues(invoice) {
 
 function fieldClass(hasError) {
   return [
-    "mt-2 h-12 w-full rounded-lg border bg-white px-4 text-sm font-bold text-[#0C0E16] outline-none transition-colors dark:bg-[#1E2139] dark:text-white",
+    "mt-2 h-12 w-full rounded-lg border bg-white px-4 text-sm font-bold text-[#0C0E16] outline-none transition-colors dark:bg-[#252945] dark:text-white",
     hasError
       ? "border-[#EC5757]"
       : "border-[#DFE3FA] hover:border-[#7C5DFA] focus:border-[#7C5DFA] dark:border-[#252945]",
@@ -65,7 +65,7 @@ function fieldClass(hasError) {
 
 function itemFieldClass(hasError) {
   return [
-    "h-12 w-full rounded-lg border bg-white px-4 text-sm font-bold text-[#0C0E16] caret-[#7C5DFA] outline-none transition-colors placeholder:text-[#888EB0] dark:bg-[#1E2139] dark:text-white dark:placeholder:text-[#DFE3FA]",
+    "h-12 w-full rounded-lg border bg-white px-4 text-sm font-bold text-[#0C0E16] caret-[#7C5DFA] outline-none transition-colors placeholder:text-[#888EB0] dark:bg-[#252945] dark:text-white dark:placeholder:text-[#DFE3FA]",
     hasError
       ? "border-[#EC5757] focus:border-[#EC5757] focus:ring-2 focus:ring-[#EC5757]/20"
       : "border-[#DFE3FA] hover:border-[#7C5DFA] focus:border-[#7C5DFA] focus:ring-2 focus:ring-[#7C5DFA]/20 dark:border-[#252945]",

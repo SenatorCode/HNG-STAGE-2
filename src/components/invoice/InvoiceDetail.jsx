@@ -121,11 +121,11 @@ export default function InvoiceDetail({ invoice }) {
       {/* Amount Due Footer */}
       <div
         className={joinClasses(
-          "flex items-center justify-between rounded-b-lg bg-[#373B53] px-6 py-6 dark:bg-[#0C0E16]",
+          "flex items-center justify-between rounded-b-lg bg-[#373B53] px-6 py-6",
         )}
       >
         <p className="text-sm font-bold uppercase text-white">Amount Due</p>
-        <p className="text-3xl font-bold text-[#7C5DFA]">
+        <p className="text-3xl font-bold text-white">
           {formatCurrency(invoice.total)}
         </p>
       </div>
