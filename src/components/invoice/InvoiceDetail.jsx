@@ -14,17 +14,21 @@ export default function InvoiceDetail({ invoice }) {
           <h2 className="text-lg font-bold text-[#0C0E16] dark:text-white">
             #{invoice.id}
           </h2>
-          <p className="mt-1 text-sm text-[#888EB0]">{invoice.description}</p>
+          <p className="mt-1 wrap-break-word text-sm text-[#888EB0]">
+            {invoice.description}
+          </p>
         </div>
         <div className="text-left text-sm text-[#888EB0] md:text-right">
-          <div className="whitespace-nowrap">
+          <div className="wrap-break-word md:whitespace-nowrap">
             {invoice.senderAddress.street}
           </div>
-          <div className="whitespace-nowrap">{invoice.senderAddress.city}</div>
-          <div className="whitespace-nowrap">
+          <div className="wrap-break-word md:whitespace-nowrap">
+            {invoice.senderAddress.city}
+          </div>
+          <div className="wrap-break-word md:whitespace-nowrap">
             {invoice.senderAddress.postCode}
           </div>
-          <div className="whitespace-nowrap">
+          <div className="wrap-break-word md:whitespace-nowrap">
             {invoice.senderAddress.country}
           </div>
         </div>
@@ -55,28 +59,56 @@ export default function InvoiceDetail({ invoice }) {
         {/* Bill To */}
         <div>
           <p className="text-xs font-bold uppercase text-[#888EB0]">Bill To</p>
-          <p className="mt-2 font-bold text-[#0C0E16] dark:text-white">
+          <p className="mt-2 wrap-break-word font-bold text-[#0C0E16] dark:text-white">
             {invoice.clientName}
           </p>
-          <div className="mt-2 text-sm text-[#888EB0]">
-            <div>{invoice.clientAddress.street}</div>
-            <div>{invoice.clientAddress.city}</div>
-            <div>{invoice.clientAddress.postCode}</div>
-            <div>{invoice.clientAddress.country}</div>
+          <div className="mt-2 space-y-1 text-sm text-[#888EB0]">
+            <div className="wrap-break-word">
+              {invoice.clientAddress.street}
+            </div>
+            <div className="wrap-break-word">{invoice.clientAddress.city}</div>
+            <div className="wrap-break-word">
+              {invoice.clientAddress.postCode}
+            </div>
+            <div className="wrap-break-word">
+              {invoice.clientAddress.country}
+            </div>
           </div>
         </div>
 
         {/* Sent To */}
         <div>
           <p className="text-xs font-bold uppercase text-[#888EB0]">Sent to</p>
-          <p className="mt-2 font-bold text-[#0C0E16] dark:text-white">
+          <p className="mt-2 wrap-break-word font-bold text-[#0C0E16] dark:text-white">
             {invoice.clientEmail}
           </p>
         </div>
       </div>
 
-      {/* Items Table */}
-      <div className="mb-8 overflow-x-auto rounded-lg bg-[#F8F8FB] p-6 dark:bg-[#252945]">
+      {/* Mobile Items List */}
+      <div className="mb-8 space-y-6 rounded-lg bg-[#F8F8FB] p-6 dark:bg-[#252945] md:hidden">
+        {invoice.items.map((item, index) => (
+          <div
+            key={index}
+            className="flex items-start justify-between gap-4 border-b border-white/10 pb-4 last:border-b-0 last:pb-0"
+          >
+            <div className="min-w-0">
+              <div className="wrap-break-word font-bold text-[#0C0E16] dark:text-white">
+                {item.name}
+              </div>
+              <div className="mt-2 text-sm font-bold text-[#888EB0]">
+                {item.quantity} x {formatCurrency(item.price)}
+              </div>
+            </div>
+            <div className="shrink-0 text-sm font-bold text-[#0C0E16] dark:text-white">
+              {formatCurrency(item.total)}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Desktop Items Table */}
+      <div className="mb-8 hidden rounded-lg bg-[#F8F8FB] p-6 dark:bg-[#252945] md:block">
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-white/10">

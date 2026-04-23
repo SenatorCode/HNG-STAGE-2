@@ -49,7 +49,9 @@ export default function InvoiceDetailPage() {
   const showDelete = true;
 
   return (
-    <div className="min-h-screen w-full bg-[#F8F8FB] px-6 py-8 dark:bg-[#141625] md:px-12 md:py-14 lg:max-w-5xl lg:mx-auto">
+    <div className="min-h-screen w-full bg-[#F8F8FB] px-6 pb-28 py-8 dark:bg-[#141625] md:px-12 md:py-14 lg:max-w-5xl lg:mx-auto lg:pb-14">
+      <h1 className="sr-only">Invoice details</h1>
+
       {/* Go Back Row */}
       <button
         onClick={() => navigate("/")}
@@ -66,7 +68,7 @@ export default function InvoiceDetailPage() {
           <StatusBadge status={invoice.status} className="mt-2" />
         </div>
 
-        <div className="flex w-full gap-2 md:w-auto md:justify-end">
+        <div className="hidden w-full gap-2 md:flex md:w-auto md:justify-end">
           {showEditDelete && (
             <Button
               variant="ghost"
@@ -92,6 +94,35 @@ export default function InvoiceDetailPage() {
               variant="primary"
               onClick={handleMarkAsPaid}
               className="flex items-center gap-2"
+            >
+              Mark as Paid
+            </Button>
+          )}
+        </div>
+      </div>
+
+      {/* Mobile Action Bar */}
+      <div className="fixed inset-x-0 bottom-0 z-30 border-t border-[#DFE3FA] bg-white px-6 py-5 dark:border-[#252945] dark:bg-[#1E2139] md:hidden">
+        <div className="grid grid-cols-2 gap-3">
+          {showEditDelete && (
+            <Button
+              variant="ghost"
+              onClick={() => setShowForm(true)}
+              className="justify-self-start"
+            >
+              Edit
+            </Button>
+          )}
+          {showDelete && (
+            <Button variant="danger" onClick={() => setShowDeleteModal(true)}>
+              Delete
+            </Button>
+          )}
+          {showMarkAsPaid && (
+            <Button
+              variant="primary"
+              onClick={handleMarkAsPaid}
+              className={showEditDelete ? "col-span-2" : "col-span-2"}
             >
               Mark as Paid
             </Button>

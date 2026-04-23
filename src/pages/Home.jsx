@@ -46,7 +46,8 @@ export default function Home() {
           <DropdownMenu.Root>
             <DropdownMenu.Trigger asChild>
               <button className="flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-bold text-[#0C0E16] transition-colors hover:text-[#7C5DFA] dark:text-white dark:hover:text-[#7C5DFA] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7C5DFA]">
-                Filter by status
+                <span className="md:hidden">Filter</span>
+                <span className="hidden md:inline">Filter by status</span>
                 <ChevronDown size={16} />
               </button>
             </DropdownMenu.Trigger>
@@ -119,11 +120,11 @@ export default function Home() {
           {/* New Invoice Button */}
           <Button
             variant="primary"
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 px-4 md:px-6"
             onClick={() => setShowForm(true)}
           >
             <Plus size={18} />
-            New Invoice
+            <span className="hidden md:inline">New Invoice</span>
           </Button>
         </div>
       </div>
